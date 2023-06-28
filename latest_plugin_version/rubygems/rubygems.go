@@ -23,7 +23,6 @@ type RuntimeDep struct {
 }
 
 func CheckRubyGems(plugin string) {
-
 	urlRubyGems := fmt.Sprintf("https://rubygems.org/api/v1/gems/%s.json", plugin)
 
 	resp, err := http.Get(urlRubyGems)
@@ -52,8 +51,7 @@ func CheckRubyGems(plugin string) {
 	fmt.Println("Dependencies:")
 
 	for _, value := range gemDetails.Dependencies.Runtime {
-		var kokos RuntimeDep = value
-		fmt.Println("-> " + kokos.Name + " " + kokos.Requirements)
+		var dep RuntimeDep = value
+		fmt.Println("-> " + dep.Name + " " + dep.Requirements)
 	}
-
 }
