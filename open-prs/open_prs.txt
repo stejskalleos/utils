@@ -1,0 +1,30 @@
+theforeman/foreman_ansible
+#647 ]8;;https://github.com/theforeman/foreman_ansible/pull/647\Fixes #36469 - Fix ansible roles and variables pagination]8;;\  (girijaasoni, 3 months ago) 
+#633 ]8;;https://github.com/theforeman/foreman_ansible/pull/633\Fixes #36273 - Use proper permission for editing Ansible variable]8;;\  (pmoravec, 5 days ago) 
+
+theforeman/foreman_azure_rm
+
+theforeman/foreman_bootdisk
+#148 ]8;;https://github.com/theforeman/foreman_bootdisk/pull/148\i18n - pulling from tx]8;;\  (stejskalleos, 13 days ago) 
+#90 ]8;;https://github.com/theforeman/foreman_bootdisk/pull/90\Proxmox extention for foreman_bootdisk]8;;\  (Manisha15, 1 month ago) 
+
+theforeman/foreman_discovery
+#607 ]8;;https://github.com/theforeman/foreman_discovery/pull/607\Rubocop]8;;\  (stejskalleos, 13 days ago) 
+#604 ]8;;https://github.com/theforeman/foreman_discovery/pull/604\Fixes #36491 - Use better fact search query]8;;\  (adamruzicka, 3 months ago) 
+#598 ]8;;https://github.com/theforeman/foreman_discovery/pull/598\Fix tests for array settings migrations]8;;\  (stejskalleos, 4 months ago) 
+#590 ]8;;https://github.com/theforeman/foreman_discovery/pull/590\Avoid re-declaring of a constant]8;;\  (ekohl, 10 months ago) 
+#586 ]8;;https://github.com/theforeman/foreman_discovery/pull/586\Optimize index view queries]8;;\  (ekohl, 11 months ago) 
+#585 ]8;;https://github.com/theforeman/foreman_discovery/pull/585\Replace Foreman to_bool with rails implementation]8;;\  (Dyrkon, 11 months ago) 
+
+theforeman/foreman-discovery-image
+#160 ]8;;https://github.com/theforeman/foreman-discovery-image/pull/160\Fixes #36757 - fix vlan id new line handling in nm-configure]8;;\  (amasolov, 14 days ago) 
+#159 ]8;;https://github.com/theforeman/foreman-discovery-image/pull/159\Fix links]8;;\  (kitgerrits, 3 months ago) 
+#157 ]8;;https://github.com/theforeman/foreman-discovery-image/pull/157\Correct ruby path in string extraction command & extrac strings]8;;\  (ekohl, 4 months ago) 
+
+theforeman/foreman_leapp
+#130 ]8;;https://github.com/theforeman/foreman_leapp/pull/130\Fixes #36666 - Add support for "channel" parameter]8;;\  (andreamtp, 13 days ago) 
+#129 ]8;;https://github.com/theforeman/foreman_leapp/pull/129\i18n - pulling from tx]8;;\  (stejskalleos, 13 days ago) 
+#123 ]8;;https://github.com/theforeman/foreman_leapp/pull/123\i18n - pulling from tx]8;;\  (ekohl, 4 months ago) 
+
+theforeman/foreman_puppet
+
