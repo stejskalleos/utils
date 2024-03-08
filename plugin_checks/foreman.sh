@@ -3,21 +3,13 @@
 # Array of GitHub repository URLs
 repositories=(
   "https://github.com/theforeman/foreman_ansible.git"
-  "https://github.com/theforeman/hammer-cli-foreman-ansible.git"
   "https://github.com/theforeman/foreman_discovery.git"
-  "https://github.com/theforeman/hammer-cli-foreman-discovery.git"
   "https://github.com/theforeman/foreman_bootdisk.git"
-  "https://github.com/theforeman/hammer_cli_foreman_bootdisk.git"
   "https://github.com/theforeman/foreman_azure_rm.git"
-  "https://github.com/theforeman/hammer_cli_foreman_azure_rm.git"
   "https://github.com/theforeman/foreman_google.git"
-  "https://github.com/theforeman/hammer-cli-foreman-google.git"
   "https://github.com/theforeman/foreman_leapp.git"
-  "https://github.com/theforeman/hammer-cli-foreman-leapp.git"
   "https://github.com/theforeman/foreman_puppet.git"
-  "https://github.com/theforeman/hammer-cli-foreman-puppet.git"
   "https://github.com/theforeman/foreman_kubevirt.git"
-  "https://github.com/theforeman/hammer-cli-foreman-kubevirt.git"
 )
 
 # Directory to clone repositories into
@@ -75,11 +67,11 @@ for repo in "${repositories[@]}"; do
   pushd "$clone_dir" > /dev/null
 
   echo ""
-  echo -e "\033[94m$repo_name\033[0m"
+  echo -e "\033[94m$repo_name\033[0m" $repo
   echo "----------------"
   check_packit
   check_shared_gh
-  check_release
+  # check_release
 
   popd > /dev/null
 done
