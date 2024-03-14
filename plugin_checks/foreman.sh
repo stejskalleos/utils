@@ -2,18 +2,19 @@
 
 # Array of GitHub repository URLs
 repositories=(
-  "https://github.com/theforeman/foreman_ansible.git"
-  "https://github.com/theforeman/foreman_discovery.git"
-  "https://github.com/theforeman/foreman_bootdisk.git"
-  "https://github.com/theforeman/foreman_azure_rm.git"
-  "https://github.com/theforeman/foreman_google.git"
-  "https://github.com/theforeman/foreman_leapp.git"
-  "https://github.com/theforeman/foreman_puppet.git"
-  "https://github.com/theforeman/foreman_kubevirt.git"
+  "foreman_ansible"
+  "foreman_discovery"
+  "foreman_bootdisk"
+  "foreman_azure_rm"
+  "foreman_google"
+  "foreman_leapp"
+  "foreman_puppet"
+  "foreman_kubevirt"
 )
 
 # Directory to clone repositories into
 temp_dir='/tmp/repo_check'
+# rm -rf $temp_dir
 mkdir -p $temp_dir
 
 check_packit() {
@@ -54,20 +55,19 @@ check_release() {
 }
 
 for repo in "${repositories[@]}"; do
-  repo_name=$(basename "$repo" .git)
-  clone_dir="$temp_dir/$repo_name"
+  clone_dir="$temp_dir/$repo"
 
   if [ -d "$clone_dir" ]; then
     pushd "$clone_dir" > /dev/null
     git pull --quiet
   else
-    git clone --quiet --single-branch --depth 1 "$repo" "$clone_dir"
+    git clone --quiet --single-branch --depth 1 "git@github.com:theforeman/$repo.git" "$clone_dir"
   fi
 
   pushd "$clone_dir" > /dev/null
 
   echo ""
-  echo -e "\033[94m$repo_name\033[0m" $repo
+  echo -e "\033[94m$repo\033[0m https://github.com/theforeman/$repo"
   echo "----------------"
   check_packit
   check_shared_gh

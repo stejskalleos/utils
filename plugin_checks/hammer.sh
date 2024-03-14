@@ -2,14 +2,14 @@
 
 # Array of GitHub repository URLs
 repositories=(
- "https://github.com/theforeman/hammer-cli-foreman-ansible.git"
- "https://github.com/theforeman/hammer-cli-foreman-discovery.git"
-  "https://github.com/theforeman/hammer_cli_foreman_bootdisk.git"
-  "https://github.com/theforeman/hammer_cli_foreman_azure_rm.git"
-  "https://github.com/theforeman/hammer-cli-foreman-google.git"
-  "https://github.com/theforeman/hammer-cli-foreman-leapp.git"
-  "https://github.com/theforeman/hammer-cli-foreman-puppet.git"
-  "https://github.com/theforeman/hammer-cli-foreman-kubevirt.git"
+  "hammer-cli-foreman-ansible"
+  "hammer-cli-foreman-discovery"
+  "hammer_cli_foreman_bootdisk"
+  "hammer_cli_foreman_azure_rm"
+  "hammer-cli-foreman-google"
+  "hammer-cli-foreman-leapp"
+  "hammer-cli-foreman-puppet"
+  "hammer-cli-foreman-kubevirt"
 )
 
 # Directory to clone repositories into
@@ -54,20 +54,19 @@ check_release() {
 }
 
 for repo in "${repositories[@]}"; do
-  repo_name=$(basename "$repo" .git)
-  clone_dir="$temp_dir/$repo_name"
+  clone_dir="$temp_dir/$repo"
 
   if [ -d "$clone_dir" ]; then
     pushd "$clone_dir" > /dev/null
     git pull --quiet
   else
-    git clone --quiet --single-branch --depth 1 "$repo" "$clone_dir"
+    git clone --quiet --single-branch --depth 1 "git@github.com:theforeman/$repo.git" "$clone_dir"
   fi
 
   pushd "$clone_dir" > /dev/null
 
   echo ""
-  echo -e "\033[94m$repo_name\033[0m $repo"
+  echo -e "\033[94m$repo\033[0m https://github.com/theforeman/$repo"
   echo "----------------"
   check_packit
   check_shared_gh
