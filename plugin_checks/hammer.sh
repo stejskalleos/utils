@@ -31,17 +31,24 @@ check_packit() {
 }
 
 
-check_shared_gh() {
+check_rubocop() {
   if grep -sq "theforeman/actions/.github/workflows/rubocop.yml" -R "./.github"; then
     echo -e "\033[32mY - Rubocop GH Action\033[0m"
   else
     echo -e "\033[31mF - Rubocop GH Action\033[0m"
   fi
 
-  if grep -sq "theforeman/actions/.github/workflows/test-gem.yml" -R "./.github"; then
-    echo -e "\033[32mY - Foreman plugin test GH Action\033[0m"
+}
+
+check_test() {
+  if [ -d "./test" ]; then
+    if grep -sq "theforeman/actions/.github/workflows/test-gem.yml" -R "./.github"; then
+      echo -e "\033[32mY - Foreman plugin test GH Action\033[0m"
+    else
+      echo -e "\033[31mF - Foreman plugin test GH Action\033[0m"
+    fi
   else
-    echo -e "\033[31mF - Foreman plugin test GH Action\033[0m"
+      echo -e "\033[0;33mS - ./test dir not found, skipping ... \033[0m"
   fi
 }
 
@@ -69,7 +76,8 @@ for repo in "${repositories[@]}"; do
   echo -e "\033[94m$repo\033[0m https://github.com/theforeman/$repo"
   echo "----------------"
   check_packit
-  check_shared_gh
+  check_rubocop
+  check_test
   # check_release
 
   popd > /dev/null
